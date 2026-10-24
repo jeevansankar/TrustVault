@@ -1,8 +1,7 @@
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+const API_BASE_URL = "https://trustvault-api.duckdns.org";
 
 // Reusable function for calling the Spring Boot backend.
-// React pages can use this function for all API requests.
 export async function apiRequest(endpoint, options = {}) {
   // Read the saved JWT for authenticated requests.
   const token = localStorage.getItem("trustvault_token");
@@ -17,9 +16,8 @@ export async function apiRequest(endpoint, options = {}) {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  // Send JSON headers for normal request bodies.
-  // Do not set Content-Type for FormData because the browser
-  // must add the multipart boundary for file uploads.
+  // Set JSON headers for normal request bodies.
+  // FormData must set its own multipart boundary.
   if (
     !(options.body instanceof FormData) &&
     options.body !== undefined
@@ -27,7 +25,7 @@ export async function apiRequest(endpoint, options = {}) {
     headers["Content-Type"] = "application/json";
   }
 
-  // fetch() returns a Promise, so await waits for the response.
+  // Send the request to the HTTPS Spring Boot backend.
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     headers,
@@ -38,23 +36,18 @@ export async function apiRequest(endpoint, options = {}) {
     return null;
   }
 
-  // Check the response format returned by Spring Boot.
+  // Read the response according to its content type.
   const contentType = response.headers.get("content-type") || "";
-
   let result = null;
 
   if (contentType.includes("application/json")) {
-    // Parse JSON responses into JavaScript objects.
     result = await response.json();
   } else {
-    // Read plain-text responses, including OTP success messages.
-    // Also read text error responses so we can show their message.
     const responseText = await response.text();
     result = responseText || null;
   }
 
-  // fetch() does not throw automatically for HTTP 400 or 500.
-  // Check the status and throw an error for unsuccessful responses.
+  // Handle unsuccessful HTTP responses.
   if (!response.ok) {
     const message =
       typeof result === "string"
@@ -64,6 +57,6 @@ export async function apiRequest(endpoint, options = {}) {
     throw new Error(message);
   }
 
-  // Return the parsed JSON object or plain-text message.
+  // Return parsed JSON or a plain-text response.
   return result;
 }
