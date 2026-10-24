@@ -10,7 +10,7 @@ export default defineConfig({
 
     proxy: {
       "/api": {
-        target: "http://13.49.241.144:8084",
+        target: "https://trustvault-api.duckdns.org",
         changeOrigin: true,
       },
     },
