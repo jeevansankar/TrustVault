@@ -3,7 +3,7 @@ import { apiRequest } from "./apiClient";
 
 const DOCUMENTS_ENDPOINT = "/api/v1/documents";
 
-// Get the users who currently have permission to access a document.
+// Get users who currently have permission to access a document.
 export function getDocumentPermissions(documentId) {
   return apiRequest(
     `${DOCUMENTS_ENDPOINT}/${encodeURIComponent(documentId)}/permissions`

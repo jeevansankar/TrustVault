@@ -41,15 +41,24 @@ export async function downloadDocument(documentId) {
     throw new Error("Your session has expired. Please sign in again.");
   }
 
-  const response = await fetch(
-    `${import.meta.env.VITE_API_BASE_URL || ""}${DOCUMENTS_ENDPOINT}/${encodeURIComponent(documentId)}/download`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+
+  if (!apiBaseUrl) {
+    throw new Error(
+      "Backend API URL is not configured. Please check VITE_API_BASE_URL."
+    );
+  }
+
+  const downloadUrl =
+    `${apiBaseUrl.replace(/\/+$/, "")}` +
+    `${DOCUMENTS_ENDPOINT}/${encodeURIComponent(documentId)}/download`;
+
+  const response = await fetch(downloadUrl, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   if (!response.ok) {
     let message = `Download failed (${response.status})`;
@@ -62,7 +71,10 @@ export async function downloadDocument(documentId) {
         message = body.message || message;
       } else {
         const body = await response.text();
-        if (body) message = body;
+
+        if (body) {
+          message = body;
+        }
       }
     } catch {
       // Keep the fallback message if the server returned no readable error.
