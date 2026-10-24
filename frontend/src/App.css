@@ -1,0 +1,349 @@
+/* =========================================================
+   TRUSTVAULT — CLEAN WHITE THEME
+   No violet, purple, or colored gradients
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --accent: #111827;
+  --accent-bg: #f3f4f6;
+  --accent-border: #d1d5db;
+
+  --text-h: #111827;
+  --text: #374151;
+
+  --border: #e5e7eb;
+  --social-bg: #f9fafb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Base application colors */
+html {
+  min-height: 100%;
+  background: #ffffff;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #ffffff;
+  color: #111827;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* Neutral links and controls */
+a {
+  color: #111827;
+}
+
+a:hover {
+  color: #374151;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: #111827;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #6b7280;
+  outline-offset: 3px;
+}
+
+/* Vite starter elements */
+.counter {
+  color: #111827;
+  background: #f3f4f6;
+  border-color: transparent;
+}
+
+.counter:hover {
+  border-color: #9ca3af;
+}
+
+.counter:focus-visible {
+  outline-color: #6b7280;
+}
+
+#next-steps {
+  border-color: #e5e7eb;
+}
+
+#docs {
+  border-color: #e5e7eb;
+}
+
+#next-steps a {
+  color: #111827;
+  background: #f9fafb;
+}
+
+#next-steps a:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   DASHBOARD — WHITE CARDS AND NEUTRAL ACCENTS
+   ========================================================= */
+
+.dashboard-page {
+  background: #ffffff;
+  color: #111827;
+}
+
+.dashboard-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dashboard-brand {
+  color: #111827;
+}
+
+.dashboard-container {
+  background: #ffffff;
+}
+
+.dashboard-welcome h1,
+.section-heading h2,
+.dashboard-card h3,
+.account-panel h2 {
+  color: #111827;
+}
+
+.dashboard-subtitle,
+.text-secondary,
+.text-muted,
+.dashboard-card p {
+  color: #4b5563;
+}
+
+/* Account panel */
+.dashboard-panel {
+  background: #ffffff;
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+}
+
+.account-avatar {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* Account status remains readable */
+.status-badge {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.status-dot {
+  background: #16a34a;
+}
+
+/* Feature cards */
+.dashboard-card {
+  background: #ffffff;
+  border-color: #e5e7eb;
+  box-shadow: none;
+}
+
+.dashboard-card:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-card-icon {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.feature-status {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Security notice */
+.security-notice {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+
+.security-notice h3 {
+  color: #111827;
+}
+
+.security-notice p {
+  color: #4b5563;
+}
+
+.security-icon {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* =========================================================
+   AUTHENTICATION — LOGIN AND REGISTER
+   ========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111827;
+}
+
+.auth-card {
+  background: #ffffff;
+  color: #111827;
+  border-color: #e5e7eb;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.brand {
+  color: #111827;
+}
+
+.brand-icon {
+  background: #111827;
+  color: #ffffff;
+}
+
+.eyebrow {
+  color: #4b5563;
+}
+
+.auth-card h1 {
+  color: #111827;
+}
+
+.auth-description,
+.form-footer,
+.form-field small {
+  color: #6b7280;
+}
+
+.form-field label {
+  color: #111827;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #6b7280;
+  outline: 2px solid rgba(107, 114, 128, 0.15);
+}
+
+/* Primary buttons */
+.primary-button {
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid #111827;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #374151;
+  border-color: #374151;
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Links, including forgot password */
+.auth-card a:not(.brand) {
+  color: #374151;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-card a:not(.brand):hover {
+  color: #111827;
+}
+
+/* Errors remain clearly visible */
+.error-message {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Browser autofill */
+.form-field input:-webkit-autofill,
+.form-field input:-webkit-autofill:hover,
+.form-field input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111827;
+  box-shadow: 0 0 0 1000px #f9fafb inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* =========================================================
+   RESPONSIVE SAFETY
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .dashboard-panel {
+    flex-wrap: wrap;
+  }
+
+  .status-badge {
+    margin-left: 0;
+  }
+
+  .auth-card {
+    width: min(580px, 100%);
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,398 @@
+
+.shared-page {
+  min-height: 100vh;
+  background: #f7f8fc;
+  color: #18213b;
+}
+
+.shared-header {
+  min-height: 76px;
+  padding: 16px clamp(20px, 6vw, 88px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: #fff;
+  border-bottom: 1px solid #e8eaf2;
+}
+
+.shared-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.shared-brand > span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.shared-brand strong {
+  font-size: 18px;
+}
+
+.shared-brand small {
+  color: #7b849c;
+  font-size: 12px;
+}
+
+.shared-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #7047d7;
+  color: #fff;
+  font-weight: 800;
+}
+
+.shared-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.shared-nav a {
+  color: #69738d;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.shared-nav a:hover {
+  color: #7047d7;
+}
+
+.shared-content {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 64px;
+}
+
+.shared-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.shared-eyebrow {
+  margin: 0 0 10px;
+  color: #7047d7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.shared-heading h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+.shared-heading > div:first-child > p:last-child {
+  margin: 10px 0 0;
+  color: #788198;
+  line-height: 1.6;
+}
+
+.shared-count {
+  min-width: 100px;
+  padding: 16px 20px;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e8eaf2;
+  border-radius: 14px;
+}
+
+.shared-count strong {
+  color: #7047d7;
+  font-size: 26px;
+}
+
+.shared-count span {
+  color: #788198;
+  font-size: 12px;
+}
+
+.shared-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e7e9f1;
+  border-radius: 17px;
+  box-shadow: 0 8px 28px rgb(30 38 70 / 4%);
+}
+
+.shared-list-heading {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #eceef5;
+}
+
+.shared-list-heading h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.shared-list-heading p {
+  margin: 7px 0 0;
+  color: #7b849c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.shared-refresh {
+  padding: 10px 14px;
+  color: #6841c8;
+  background: #f4efff;
+  border: 1px solid #e8ddff;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.shared-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.shared-table-wrap {
+  overflow-x: auto;
+}
+
+.shared-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.shared-table th {
+  padding: 15px 20px;
+  color: #828aa0;
+  background: #fcfcfe;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.shared-table td {
+  padding: 17px 20px;
+  border-top: 1px solid #f0f1f6;
+  color: #606b85;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.shared-file-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.shared-file-icon {
+  width: 38px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #7047d7;
+  background: #f1ebff;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.shared-file-name > div {
+  display: grid;
+  gap: 5px;
+}
+
+.shared-file-name strong {
+  max-width: 280px;
+  overflow: hidden;
+  color: #27314b;
+  text-overflow: ellipsis;
+}
+
+.shared-file-name small {
+  color: #8b93a8;
+  font-size: 11px;
+}
+
+.shared-type {
+  padding: 5px 8px;
+  color: #6841c8;
+  background: #f2edff;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.shared-download {
+  padding: 9px 13px;
+  color: #fff;
+  background: #7047d7;
+  border: 0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.shared-download:hover {
+  background: #5d35c1;
+}
+
+.shared-download:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.shared-state {
+  min-height: 240px;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.shared-state h3 {
+  margin: 14px 0 5px;
+  font-size: 17px;
+}
+
+.shared-state p {
+  max-width: 440px;
+  color: #7b849c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.shared-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  color: #7047d7;
+  background: #f1ebff;
+  border-radius: 16px;
+  font-size: 27px;
+}
+
+.shared-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e9e1ff;
+  border-top-color: #7047d7;
+  border-radius: 50%;
+  animation: shared-spin 0.8s linear infinite;
+}
+
+@keyframes shared-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shared-alert {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.shared-alert button {
+  padding: 5px 8px;
+  background: transparent;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.shared-alert-error {
+  color: #a62b3a;
+  background: #fff0f1;
+  border: 1px solid #ffd8dc;
+}
+
+.shared-alert-success {
+  color: #176b4a;
+  background: #ecfaf3;
+  border: 1px solid #c9f0dc;
+}
+
+.shared-security-note {
+  margin-top: 20px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f0edff;
+  border: 1px solid #e4dcff;
+  border-radius: 12px;
+}
+
+.shared-security-note > span {
+  color: #278963;
+  font-weight: 900;
+}
+
+.shared-security-note p {
+  margin: 0;
+  color: #625a85;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+  .shared-header {
+    padding: 16px 20px;
+  }
+
+  .shared-nav {
+    gap: 14px;
+  }
+
+  .shared-content {
+    width: calc(100% - 28px);
+    padding-top: 28px;
+  }
+
+  .shared-heading {
+    align-items: flex-start;
+  }
+
+  .shared-count {
+    min-width: 75px;
+    padding: 12px;
+  }
+
+  .shared-list-heading {
+    padding: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shared-table th,
+  .shared-table td {
+    padding: 13px 14px;
+  }
+}

@@ -1,0 +1,303 @@
+
+/* =========================================
+   TRUSTVAULT — CLEAN WHITE DESIGN
+   White backgrounds • Black text • Grey borders
+   No background video • No violet styling
+   ========================================= */
+
+:root {
+  color-scheme: light;
+  --tv-white: #ffffff;
+  --tv-black: #111827;
+  --tv-text: #1f2937;
+  --tv-muted: #667085;
+  --tv-border: #e5e7eb;
+  --tv-soft: #f9fafb;
+}
+
+/* Global application shell */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  background: var(--tv-white);
+  color: var(--tv-text);
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.app-shell,
+.app-shell.has-video-bg {
+  position: relative;
+  isolation: auto;
+  min-height: 100vh;
+  background: var(--tv-white) !important;
+  color: var(--tv-text);
+}
+
+/* Completely hide the background video and overlay */
+.tv-video-backdrop,
+.tv-video-backdrop video,
+.tv-video-overlay {
+  display: none !important;
+}
+
+/* Authentication pages */
+.app-shell.has-video-bg .auth-page,
+.auth-page {
+  position: relative;
+  z-index: auto;
+  min-height: 100vh;
+  background: var(--tv-white) !important;
+  color: var(--tv-text);
+}
+
+.app-shell.has-video-bg .auth-card,
+.auth-card {
+  position: relative;
+  z-index: auto;
+  background: var(--tv-white) !important;
+  color: var(--tv-black);
+  border: 1px solid var(--tv-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgb(17 24 39 / 7%);
+}
+
+/* General text */
+.tv-home {
+  position: relative;
+  isolation: auto;
+  overflow: visible;
+  background: var(--tv-white) !important;
+  color: var(--tv-text);
+}
+
+.tv-home h1,
+.tv-home h2,
+.tv-home h3,
+.tv-home h4,
+.tv-home strong {
+  color: var(--tv-black) !important;
+}
+
+.tv-home p,
+.tv-home li {
+  color: var(--tv-muted);
+}
+
+/* Navigation */
+.tv-home header,
+.tv-home nav,
+.tv-home .tv-header,
+.tv-home .tv-navbar {
+  background: var(--tv-white) !important;
+  color: var(--tv-black);
+  border-bottom: 1px solid var(--tv-border);
+  box-shadow: none;
+}
+
+.tv-home a {
+  color: var(--tv-black);
+}
+
+.tv-home a:hover {
+  color: #374151;
+}
+
+/* Hero section */
+.tv-home .tv-hero {
+  min-height: min(760px, calc(100svh - 70px));
+  padding: 90px 24px;
+  background: var(--tv-white) !important;
+  color: var(--tv-black);
+}
+
+.tv-home .tv-hero h1 {
+  max-width: 950px;
+  margin-inline: auto;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  color: var(--tv-black) !important;
+}
+
+.tv-home .tv-hero p {
+  color: var(--tv-muted) !important;
+  line-height: 1.8;
+}
+
+/* All homepage sections */
+.tv-home section,
+.tv-home .tv-about,
+.tv-home .tv-features,
+.tv-home .tv-how-it-works,
+.tv-home .tv-technology,
+.tv-home .tv-contact {
+  background: var(--tv-white) !important;
+  color: var(--tv-text);
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.tv-home section h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--tv-black) !important;
+}
+
+/* Remove violet text, gradient text and decorative highlights */
+.tv-home h1 span,
+.tv-home h2 span,
+.tv-home .highlight,
+.tv-home .accent,
+.tv-home .gradient-text,
+.tv-home .eyebrow,
+.tv-home .section-label {
+  color: var(--tv-black) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-text-fill-color: var(--tv-black) !important;
+}
+
+/* Feature and information cards */
+.tv-home .tv-feature-card,
+.tv-home .tv-contact-card,
+.tv-home .tv-technology-card {
+  background: var(--tv-white) !important;
+  color: var(--tv-text) !important;
+  border: 1px solid var(--tv-border) !important;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgb(17 24 39 / 4%);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tv-home .tv-feature-card:hover,
+.tv-home .tv-contact-card:hover,
+.tv-home .tv-technology-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 12px 28px rgb(17 24 39 / 7%);
+}
+
+.tv-home .tv-feature-card h3,
+.tv-home .tv-contact-card h3,
+.tv-home .tv-technology-card h3 {
+  color: var(--tv-black) !important;
+}
+
+.tv-home .tv-feature-card p,
+.tv-home .tv-contact-card p,
+.tv-home .tv-technology-card p {
+  color: var(--tv-muted) !important;
+}
+
+/* Buttons */
+.tv-home button,
+.tv-home .tv-button,
+.tv-home .tv-primary-button {
+  background: var(--tv-black) !important;
+  background-image: none !important;
+  color: var(--tv-white) !important;
+  border: 1px solid var(--tv-black) !important;
+  border-radius: 10px;
+  box-shadow: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tv-home button:hover,
+.tv-home .tv-button:hover,
+.tv-home .tv-primary-button:hover {
+  background: #374151 !important;
+  border-color: #374151 !important;
+}
+
+.tv-home .tv-secondary-button {
+  background: var(--tv-white) !important;
+  color: var(--tv-black) !important;
+  border: 1px solid #d1d5db !important;
+}
+
+/* Icons and decorative elements */
+.tv-home svg {
+  color: inherit;
+}
+
+.tv-home .tv-icon,
+.tv-home .tv-feature-icon {
+  background: #f3f4f6 !important;
+  color: var(--tv-black) !important;
+  border-color: var(--tv-border) !important;
+}
+
+/* Forms and contact fields */
+.tv-home input,
+.tv-home textarea,
+.tv-home select {
+  background: var(--tv-white) !important;
+  color: var(--tv-black) !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 10px;
+}
+
+.tv-home input:focus,
+.tv-home textarea:focus,
+.tv-home select:focus {
+  outline: 2px solid #9ca3af;
+  outline-offset: 2px;
+  border-color: #6b7280 !important;
+}
+
+/* Footer */
+.tv-home footer,
+.tv-home .tv-footer {
+  background: var(--tv-white) !important;
+  color: var(--tv-muted) !important;
+  border-top: 1px solid var(--tv-border);
+}
+
+.tv-home footer h2,
+.tv-home footer h3,
+.tv-home footer strong {
+  color: var(--tv-black) !important;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .tv-home .tv-hero {
+    min-height: auto;
+    padding: 72px 20px;
+  }
+
+  .tv-home .tv-hero h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .tv-home section,
+  .tv-home .tv-about,
+  .tv-home .tv-features,
+  .tv-home .tv-how-it-works,
+  .tv-home .tv-technology,
+  .tv-home .tv-contact {
+    padding: 60px 20px;
+  }
+
+  .tv-home section h2 {
+    font-size: clamp(1.9rem, 7vw, 2.7rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tv-home *,
+  .auth-card {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
