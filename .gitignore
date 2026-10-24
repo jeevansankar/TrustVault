@@ -1,42 +1,15 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
-# TrustVault frontend dependencies and generated output
+﻿# Frontend dependencies and build output
 /frontend/node_modules/
 /frontend/dist/
 
-# Local environment files and secrets
+# Backend build output
+/backend/target/
+
+# Private uploaded documents
+/private-storage/
+/backend/private-storage/
+
+# Local environment and secrets
 .env
 .env.*
 !.env.example
@@ -44,10 +17,20 @@ build/
 **/.env.*
 !**/.env.example
 
-# Private user document storage
-/private-storage/
+# IDE files
+.idea/
+.vscode/
+*.iml
 
-# Local logs and operating-system files
+# Logs and OS files
 *.log
 .DS_Store
 Thumbs.db
+
+# Temporary backups
+/backend-project-safety-backup/
+/trustvault-inner-git-backup/
+/trustvault-outer-git-backup/
+
+# Local archive backup
+/trustvault.zip
