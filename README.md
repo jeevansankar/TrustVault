@@ -341,28 +341,29 @@ After starting MySQL, the backend, and the frontend, check the following:
 These are manual verification steps. They do not replace a comprehensive automated security test suite.
 
 ---
-
 ## 🧪 Demo Accounts
 
-Use these accounts to demonstrate the document-sharing workflow, provided they can currently sign in to the deployed application.
+Use the following dedicated demo accounts to demonstrate the TrustVault document-sharing workflow on the live application.
 
-| Purpose | Account email |
-|---|---|
-| Document owner | `vankamallamohith@gmail.com` |
-| Sharing recipient | `jeevansankarchallagundla@gmail.com` |
+**Application:** https://trustvault-app-k8a4.onrender.com
 
-### Suggested demonstration
+| Role | Email | Password |
+|---|---|---|
+| Document Owner | `vankamallamohith@gmail.com` | `Mohith@171006` |
+| Sharing Recipient | `jeevansankarchallagundla@gmail.com` | `Jeevan1892887@` |
 
-1. Sign in as the document owner.
+### Suggested Demonstration
+
+1. Sign in using the **Document Owner** account.
 2. Upload a sample document.
-3. Share it with the recipient's registered email.
-4. Sign in as the recipient.
+3. Share the document with the recipient's registered email address.
+4. Sign in using the **Sharing Recipient** account.
 5. Verify that the recipient can view and download the shared document.
-6. Check that view-only sharing does not permit document editing.
-7. Revoke sharing permission and verify that subsequent protected requests are denied.
+6. Verify that view-only sharing does not permit document editing.
+7. Revoke the recipient's sharing permission.
+8. Refresh the recipient's session or retry the protected request to verify that access is denied.
 
-Passwords are intentionally not included in this public README. Provide dedicated test credentials to evaluators through a private channel. Do not use personal passwords as public demo credentials.
-
+**Security note:** These credentials are publicly visible in this repository. Use them only for dedicated demo accounts containing non-sensitive sample data. Never reuse personal or production passwords. Change or rotate these credentials after the evaluation if necessary.
 ---
 
 ## 🗄️ Database and File Storage
