@@ -1,8 +1,8 @@
 # 🔐 TrustVault — Secure Document Management System
 
-**Secure document sharing. Controlled access. File integrity verification. Security auditability.**
+**Secure document sharing. User-specific access. File integrity verification.**
 
-TrustVault is a full-stack document management platform built to help users store, download, and share documents with specific people while protecting access through backend authorization.
+TrustVault is a full-stack document management platform built with **React, Java Spring Boot, and MySQL**. It enables users to upload and download documents, share specific documents with selected users, and control access through backend security checks.
 
 🌐 **Live Application:** https://trustvault-app-k8a4.onrender.com  
 ⚙️ **Backend API:** https://trustvault-api.duckdns.org  
@@ -14,102 +14,114 @@ TrustVault is a full-stack document management platform built to help users stor
 
 1. [Project Overview](#-project-overview)
 2. [Problem Statement](#-problem-statement)
-3. [Key Features](#-key-features)
+3. [Implemented Features](#-implemented-features)
 4. [Technology Stack](#-technology-stack)
 5. [System Architecture](#-system-architecture)
-6. [How Document Sharing Works](#-how-document-sharing-works)
+6. [Document Sharing Workflow](#-document-sharing-workflow)
 7. [Security Design](#-security-design)
-8. [Local Installation](#-local-installation)
-9. [Environment Configuration](#-environment-configuration)
-10. [Running the Application](#-running-the-application)
-11. [Demo Accounts](#-demo-accounts)
-12. [Testing the Application](#-testing-the-application)
-13. [Database and File Storage](#-database-and-file-storage)
-14. [Deployment](#-deployment)
-15. [API Documentation](#-api-documentation)
-16. [Threat Analysis](#-threat-analysis)
-17. [AI-Assisted Development](#-ai-assisted-development)
-18. [Known Limitations](#-known-limitations)
-19. [Future Improvements](#-future-improvements)
-20. [Author](#-author)
+8. [Local Setup Prerequisites](#-local-setup-prerequisites)
+9. [Database Configuration](#-database-configuration)
+10. [Backend Setup](#-backend-setup)
+11. [Frontend Setup](#-frontend-setup)
+12. [Environment Configuration](#-environment-configuration)
+13. [Demo Accounts](#-demo-accounts)
+14. [Testing the Application](#-testing-the-application)
+15. [Database and File Storage](#-database-and-file-storage)
+16. [Cloud Deployment](#-cloud-deployment)
+17. [Threat Analysis](#-threat-analysis)
+18. [AI-Assisted Development](#-ai-assisted-development)
+19. [Current Limitations](#-current-limitations)
+20. [Future Work](#-future-work)
+21. [Author](#-author)
 
 ---
 
 ## 🎯 Project Overview
 
-TrustVault is a security-focused document management application developed using React, Java Spring Boot, and MySQL.
+TrustVault focuses on an important security problem: **ensuring that documents are shared only with their intended recipients**.
 
-It provides document upload and download functionality, user-specific sharing, authentication, file integrity hashing, and security-related logging.
+Unlike a basic file-upload application, TrustVault combines authentication, document management, user-specific sharing, backend authorization, file integrity hashing, and security-related logging.
 
-The main objective is to ensure that documents are accessible only to authorized users and that important security activities can be investigated.
+The project was developed using React for the user interface, Java Spring Boot for backend APIs, and MySQL for persistent application data.
 
 ## 🚨 Problem Statement
 
-Traditional document-sharing systems can expose confidential information when permissions are too broad, access is not revoked correctly, or document activity cannot be traced.
+Confidential documents can be exposed when access permissions are too broad, shared documents are accessible to the wrong users, or security-related activity cannot be investigated.
 
-TrustVault addresses these challenges through:
+TrustVault addresses this problem by providing:
 
-- 🔑 Authentication and account verification.
-- 👤 User-specific document permissions.
-- 📄 Document upload and download.
-- 🔒 Backend-enforced access controls.
+- 🔑 User authentication and email verification.
+- 📂 Document upload and download.
+- 👥 Sharing with a specific registered user.
+- 🔒 View-only sharing for recipients.
+- 🛡️ Backend security controls.
+- 🔏 SHA-256 file integrity hash support.
 - 🧾 Security-related activity logging.
-- 🛡️ SHA-256 file integrity verification.
 
-The project prioritizes security alongside functionality.
+The goal is to make document sharing more controlled, traceable, and security-conscious.
 
-## ✨ Key Features
+---
 
-### 🔑 Authentication
-- User registration and email OTP verification.
+## ✨ Implemented Features
+
+### 🔑 1. Authentication and Account Security
+
+- User registration.
+- Email OTP verification.
 - JWT-based authentication.
 - Password recovery functionality.
 - Spring Security integration.
 
-### 📂 Document Management
+### 📂 2. Document Management
+
 - Upload documents.
 - View and manage personal documents.
-- Download authorized documents.
+- Download documents.
 - Store document metadata.
 
-### 🤝 Controlled Document Sharing
-- Share a document with a particular user.
+### 🤝 3. User-Specific Document Sharing
+
+- Share a particular document with a selected user.
 - Allow the intended recipient to view and download shared documents.
-- Sharing is designed to provide view-only access rather than document editing.
-- Backend authorization is responsible for protecting document operations.
+- Provide view-only sharing rather than document editing.
+- Use backend authorization for protected document operations.
 
-### 🛡️ File Integrity
-- SHA-256 integrity hash support.
-- Hashes can be used to check whether a file has changed.
+### 🔏 4. File Integrity Support
 
-### 🧾 Security Logging
-- Records security-related activities supported by the application.
-- Provides a foundation for investigating document activity.
+- SHA-256 file integrity hash support.
+- Hashes can be used to help detect changes to document contents.
 
-### ☁️ Cloud Deployment
-- React frontend hosted on Render.
-- Spring Boot backend hosted on AWS EC2.
+### 🧾 5. Security-Related Logging
+
+- Application security-related activity logging.
+- A foundation for investigating document operations and access-related events.
+
+### ☁️ 6. Cloud Deployment
+
+- React frontend deployed on Render.
+- Java Spring Boot backend deployed on AWS EC2.
 - MySQL database hosted on Amazon RDS.
-- DuckDNS domain and Caddy reverse proxy configured for HTTPS.
+- DuckDNS domain configuration and Caddy reverse proxy for HTTPS.
 
 ---
 
 ## 🧰 Technology Stack
 
-| Layer | Technology |
+| Component | Technology |
 |---|---|
 | Frontend | React, Vite, JavaScript, CSS |
 | Backend | Java 21, Spring Boot |
 | Build tool | Maven Wrapper |
-| Security | Spring Security, JWT |
+| Authentication | JWT |
+| Security framework | Spring Security |
 | Database | MySQL |
-| Database migrations | Flyway, when enabled in the project configuration |
+| Database migrations | Flyway, if enabled in the configuration |
 | File integrity | SHA-256 |
 | Email verification | Email OTP integration |
 | Frontend hosting | Render |
 | Backend hosting | AWS EC2 |
 | Database hosting | Amazon RDS for MySQL |
-| HTTPS and domain | Caddy, DuckDNS |
+| Domain and HTTPS | DuckDNS, Caddy |
 | Version control | Git, GitHub |
 
 ---
@@ -117,76 +129,89 @@ The project prioritizes security alongside functionality.
 ## 🏗️ System Architecture
 
 ```text
-                 USER / BROWSER
-                       |
-                       v
-              REACT + VITE FRONTEND
-                    (Render)
-                       |
-                  HTTPS / API
-                       |
-                       v
-              SPRING BOOT BACKEND
+                   USER / BROWSER
+                         |
+                         v
+                  REACT + VITE
+                    FRONTEND
+                     (Render)
+                         |
+                      HTTPS
+                         |
+                         v
+                 JAVA SPRING BOOT
+                     BACKEND
                     (AWS EC2)
-                       |
-          +------------+------------+
-          |            |            |
-          v            v            v
-     SPRING        AMAZON RDS    PRIVATE FILE
-     SECURITY      MySQL         STORAGE
-     AND JWT       DATABASE      ON BACKEND
-          |
-          v
-   DOCUMENT AUTHORIZATION
-   AND SECURITY LOGGING
+                         |
+              +----------+----------+
+              |                     |
+              v                     v
+       SPRING SECURITY          AMAZON RDS
+       JWT AUTHENTICATION       MySQL Database
+              |
+              v
+       DOCUMENT ACCESS
+        AUTHORIZATION
+              |
+              v
+       BACKEND-MANAGED
+        FILE STORAGE
 ```
 
-**Important:** MySQL stores database records and metadata. Uploaded document files are stored separately by the backend in its configured storage directory. Database backups do not automatically back up those files.
+**Architecture overview:**
+
+- React provides the user interface.
+- Spring Boot handles authentication, APIs, and document operations.
+- Spring Security and JWT support protected access.
+- MySQL stores application data and document metadata.
+- The backend manages uploaded document files in its configured storage location.
+
+Database backups do not automatically include files stored separately on the backend.
 
 ---
 
-## 🔐 How Document Sharing Works
+## 🔐 Document Sharing Workflow
 
-1. A registered user signs in.
+1. A user registers and signs in.
 2. The document owner uploads a document.
-3. The owner shares the document with a particular user.
-4. The intended recipient can view or download the shared document according to the granted permissions.
-5. The recipient should not be able to edit the document through view-only sharing.
-6. Access should be checked by the backend on each protected operation.
-7. When sharing permission is revoked, the recipient should lose access to subsequent requests.
+3. The owner selects a particular user to share the document with.
+4. The intended recipient can view and download the shared document.
+5. View-only sharing is intended to prevent the recipient from editing the document.
+6. Protected document requests are handled by the backend.
+7. The owner can revoke sharing permission; subsequent access must be checked against the updated permission.
 
-**Security principle:** Hiding a button in the frontend is not sufficient. The backend must enforce authorization for document viewing, downloading, modification, and deletion.
+**Important security principle:** Hiding a frontend button is not enough. The backend must enforce permissions for every protected document operation.
 
 ---
 
 ## 🛡️ Security Design
 
-TrustVault incorporates several security controls:
+TrustVault incorporates the following security mechanisms:
 
-- **Authentication:** JWT-based login and Spring Security.
-- **Authorization:** Server-side checks for protected operations.
-- **User-specific sharing:** Documents are shared with intended recipients.
-- **Transport security:** HTTPS for communication with the deployed application.
-- **Secret management:** Configuration through environment variables.
-- **Integrity verification:** SHA-256 hashes for supported file-integrity checks.
-- **Activity logging:** Security-related events recorded by the application.
+- **Authentication:** JWT-based authentication and Spring Security.
+- **Access control:** User-specific document sharing and backend authorization.
+- **Transport security:** HTTPS for the deployed application.
+- **Secret management:** Environment-based configuration for sensitive settings.
+- **Integrity support:** SHA-256 hashes for supported file-integrity checks.
+- **Activity logging:** Security-related logging provided by the application.
 
-Security tests and comprehensive audit coverage remain areas for further development. See [THREATS.md](THREATS.md) for the documented threat analysis.
+Comprehensive authorization testing, full audit coverage, and audit-log tamper resistance require further verification and improvement.
+
+See [THREATS.md](THREATS.md) for the project's threat analysis.
 
 ---
 
-## 💻 Local Installation
-
-### Prerequisites
+## 💻 Local Setup Prerequisites
 
 Install the following software:
 
 - Java JDK 21
 - Git
-- Node.js LTS and npm
+- Node.js LTS
+- npm
 - MySQL Server
 
-Verify the installations:
+Verify the installations in your terminal:
 
 ```bash
 java -version
@@ -196,22 +221,28 @@ npm -v
 mysql --version
 ```
 
-### Step 1 — Clone the repository
+---
+
+## 📥 1. Clone the Repository
+
+Open a terminal and run:
 
 ```bash
 git clone https://github.com/jeevansankar/TrustVault.git
 cd TrustVault
 ```
 
-### Step 2 — Create the database
+The project contains separate `backend` and `frontend` directories.
 
-Start MySQL and execute:
+---
+
+## 🗄️ 2. Database Configuration
+
+Start your local MySQL Server and create the database:
 
 ```sql
 CREATE DATABASE trustvault;
 ```
-
-Configure the database connection using the properties and environment variables expected by the backend.
 
 Check the backend configuration in:
 
@@ -219,27 +250,37 @@ Check the backend configuration in:
 backend/src/main/resources/application.properties
 ```
 
-If Flyway is enabled, the configured migrations manage the database schema during startup.
+Configure the database URL, username, and password according to the application's actual configuration.
 
-### Step 3 — Configure environment variables
+If Flyway is enabled, its configured migration scripts can create or update the database schema during application startup.
 
-Set the required configuration for:
+---
 
-- MySQL connection URL, username, and password.
-- Email-provider credentials.
+## ⚙️ 3. Environment Configuration
+
+Configure the backend's required settings before starting it.
+
+These may include:
+
+- MySQL connection details.
+- Email-provider credentials for OTP verification and password recovery.
 - JWT signing secret.
-- OTP security settings.
+- OTP security configuration.
 - Private document storage path.
 
-Use the exact variable names expected by the application's configuration. Do not assume that a `.env` file is automatically loaded by Spring Boot.
+**Important:** Use the exact property names and environment-variable names expected by the backend code.
 
-**Never commit production credentials or secret keys to GitHub.**
+Spring Boot does not automatically load every `.env` file. Follow the configuration mechanism used by this project.
 
-### Step 4 — Build and run the backend
+Never commit real database passwords, email credentials, JWT secrets, or other production secrets to GitHub.
+
+---
+
+## ☕ 4. Start the Spring Boot Backend
 
 Open a terminal in the repository root.
 
-**Windows PowerShell:**
+### Windows PowerShell
 
 ```powershell
 cd backend
@@ -247,7 +288,7 @@ cd backend
 java -jar target\trustvault-0.0.1-SNAPSHOT.jar
 ```
 
-**macOS / Linux:**
+### macOS / Linux
 
 ```bash
 cd backend
@@ -256,11 +297,17 @@ chmod +x mvnw
 java -jar target/trustvault-0.0.1-SNAPSHOT.jar
 ```
 
-Wait for Spring Boot to start successfully. Keep the backend terminal open.
+Wait for Spring Boot to start successfully. Keep this terminal running.
 
-### Step 5 — Install and run the frontend
+If the backend fails to start, check the error message for database connectivity, missing configuration, or schema migration issues.
 
-Open a second terminal from the repository root:
+> `-DskipTests` skips test execution during packaging. It does not prove that the application has passed automated security tests.
+
+---
+
+## ⚛️ 5. Start the React Frontend
+
+Open a **second terminal** from the repository root:
 
 ```bash
 cd frontend
@@ -268,154 +315,108 @@ npm install
 npm run dev
 ```
 
-Open the local URL displayed by Vite, commonly:
+Vite displays the local frontend URL in the terminal. It is commonly:
 
 http://localhost:5173
 
-Ensure the frontend API configuration points to the local backend when running locally.
+Open that URL in your browser.
 
-### Step 6 — Verify the setup
-
-Check that:
-
-- MySQL is running and the backend connects successfully.
-- Spring Boot starts without configuration or schema errors.
-- The frontend can communicate with the backend.
-- Login and registration work with valid credentials.
-- Email OTP and password recovery work with valid email-provider configuration.
-- Document upload, download, and authorized sharing work correctly.
+Ensure the frontend API configuration points to your local Spring Boot backend when testing locally. Do not leave it pointing to the deployed API if you intend to test the local backend.
 
 ---
 
-## ⚙️ Environment Configuration
+## ✅ 6. Verify the Application
 
-The backend requires configuration appropriate to the environment.
+After starting MySQL, the backend, and the frontend, check the following:
 
-| Configuration | Purpose |
-|---|---|
-| Database settings | Connect Spring Boot to MySQL |
-| Email settings | Send verification and password-reset emails |
-| JWT secret | Sign and validate authentication tokens |
-| OTP settings | Protect verification codes |
-| Storage path | Specify where uploaded documents are stored |
+- MySQL is running and the backend connects successfully.
+- Spring Boot starts without configuration or database errors.
+- The frontend communicates with the intended backend API.
+- Registration, login, and email verification work with valid configuration.
+- Document upload and download work.
+- Sharing with a particular user works.
+- The recipient can access the shared document according to the granted permission.
+- Password recovery works when the email provider is correctly configured.
 
-Refer to the actual backend configuration for the required variable names and formats. Keep local development credentials separate from production credentials.
+These are manual verification steps. They do not replace a comprehensive automated security test suite.
 
 ---
 
 ## 🧪 Demo Accounts
 
-**Use real, tested accounts before sharing this repository with evaluators.** The placeholders below must be replaced with valid credentials created in the deployed application.
+Use these accounts to demonstrate the document-sharing workflow, provided they can currently sign in to the deployed application.
 
-| Account | Username / Email | Password |
-|---|---|---|
-| Document owner | `REPLACE_WITH_OWNER_EMAIL` | `REPLACE_WITH_TESTED_PASSWORD` |
-| Shared viewer | `REPLACE_WITH_VIEWER_EMAIL` | `REPLACE_WITH_TESTED_PASSWORD` |
-| Administrator | `REPLACE_WITH_ADMIN_EMAIL_IF_IMPLEMENTED` | `REPLACE_WITH_TESTED_PASSWORD` |
-
-Do not claim an administrator account is available unless the application actually supports the administrator role and its intended permissions.
-
-Use dedicated test accounts and never publish personal account credentials or production secrets.
-
----
-
-## ✅ Testing the Application
-
-Recommended manual test cases:
-
-| Test | Expected result |
+| Purpose | Account email |
 |---|---|
-| Sign in with valid credentials | Authentication succeeds |
-| Sign in with an incorrect password | Authentication is rejected |
-| Upload a document | Authorized upload succeeds |
-| Download an owned document | Owner can download it |
-| Share with a specific user | Intended recipient gains the granted access |
-| Access a shared document | Authorized recipient can view or download |
-| Attempt access as an unrelated user | Backend rejects unauthorized access |
-| Revoke sharing permission | Subsequent protected requests are denied |
-| Attempt editing through view-only sharing | Editing is not permitted |
-| Verify file integrity | Supported hash check detects a changed file |
+| Document owner | `vankamallamohith@gmail.com` |
+| Sharing recipient | `jeevansankarchallagundla@gmail.com` |
 
-These are test objectives, not a claim that a complete automated test suite already exists. Automated security tests covering these cases are still an improvement area.
+### Suggested demonstration
+
+1. Sign in as the document owner.
+2. Upload a sample document.
+3. Share it with the recipient's registered email.
+4. Sign in as the recipient.
+5. Verify that the recipient can view and download the shared document.
+6. Check that view-only sharing does not permit document editing.
+7. Revoke sharing permission and verify that subsequent protected requests are denied.
+
+Passwords are intentionally not included in this public README. Provide dedicated test credentials to evaluators through a private channel. Do not use personal passwords as public demo credentials.
 
 ---
 
 ## 🗄️ Database and File Storage
 
-TrustVault uses MySQL for persistent application data and database records.
+TrustVault uses MySQL to store persistent application data.
 
-The deployed database is hosted on Amazon RDS. Document files are managed separately by the backend in its configured private storage location.
+In the deployed architecture:
 
-**Backup considerations:**
+- Amazon RDS hosts the MySQL database.
+- The backend manages uploaded document files separately from database records.
+- RDS backup settings protect the database according to the configured backup and retention policy.
 
-- Amazon RDS backups protect the database within the configured backup and retention settings.
-- RDS backups do not automatically include document files stored on the backend server.
-- A separate file backup and restoration process is required to recover deleted or lost documents.
-- Backup and recovery of uploaded document files is not yet fully implemented.
+**Important:** A database backup does not automatically back up document files stored on the backend server. Separate file backup and recovery procedures are required to recover lost or deleted documents.
 
 ---
 
-## ☁️ Deployment
+## ☁️ Cloud Deployment
 
-The deployed architecture uses:
+The deployed architecture uses the following services:
 
-| Component | Deployment |
+| Component | Service |
 |---|---|
 | Frontend | Render |
 | Backend | AWS EC2 |
 | Database | Amazon RDS for MySQL |
-| API domain | DuckDNS |
+| Domain configuration | DuckDNS |
 | HTTPS reverse proxy | Caddy |
 
-Live links:
+### Live links
 
 - **Application:** https://trustvault-app-k8a4.onrender.com
 - **Backend API domain:** https://trustvault-api.duckdns.org
-- **Source code:** https://github.com/jeevansankar/TrustVault
+- **GitHub repository:** https://github.com/jeevansankar/TrustVault
 
-The application requires correctly configured database connectivity, environment variables, email delivery, CORS, and frontend API settings.
-
----
-
-## 📚 API Documentation
-
-The backend exposes REST endpoints for authentication and document operations.
-
-For each endpoint, API documentation should specify:
-
-- HTTP method and route.
-- Required authentication.
-- Required role or document permission.
-- Request parameters and body.
-- Successful response and error responses.
-- Authorization checks performed by the backend.
-
-The login endpoint observed in the deployed application is:
-
-```text
-POST /api/v1/auth/login
-```
-
-Consult the backend controller classes and security configuration for the complete, verified endpoint list. A complete endpoint-by-endpoint API reference remains to be documented.
+Successful operation depends on the correct configuration of database connectivity, environment variables, email delivery, CORS, and frontend API settings.
 
 ---
 
 ## 🧠 Threat Analysis
 
-The project includes [THREATS.md](THREATS.md), which documents potential security risks and mitigations.
+The repository includes [THREATS.md](THREATS.md), which documents security risks and mitigation considerations.
 
 Important threat scenarios include:
 
 - Unauthorized access to another user's document.
-- Attempts to download a file by calling the API directly.
-- Access to a document after permission revocation.
-- Attempts to modify or delete a view-only shared document.
-- Exposure of credentials or signing secrets.
-- Tampering with or insufficient recording of audit events.
-- Uploading unexpected or unsafe file types.
-- Loss of uploaded files or incomplete recovery after deletion.
+- Direct API requests attempting to bypass frontend restrictions.
+- Attempts to access a document after permission revocation.
+- Attempts to edit or delete a view-only shared document.
+- Exposure of database credentials or signing secrets.
+- Incomplete recording or tampering with audit events.
+- Unexpected or unsafe uploaded file types.
+- Loss of uploaded files and incomplete recovery.
 
-The application still needs comprehensive automated security tests and stronger verification of audit coverage and tamper resistance.
+Threat analysis should be supported by tests that demonstrate whether the corresponding protections work.
 
 ---
 
@@ -426,41 +427,44 @@ AI tools used during development:
 - ChatGPT
 - Claude
 
-They assisted with coding, debugging, security configuration reviews, interface design, and cloud deployment troubleshooting.
+They assisted with coding, debugging, security configuration reviews, interface design, and deployment troubleshooting.
 
-The developer reviewed configurations, inspected logs, and checked generated suggestions against the application's behavior rather than treating AI output as automatically correct.
+AI-generated suggestions were reviewed against application logs, configuration, and actual runtime behaviour rather than being accepted without verification.
 
-See [PROMPTS.md](PROMPTS.md) for the AI development record. Entries should reflect actual prompts, specific errors or limitations, the corrections made, and real commit links.
-
----
-
-## ⚠️ Known Limitations
-
-The core document workflows have been implemented, including uploading, downloading, and user-specific view-only sharing. The following areas still need completion or stronger verification:
-
-1. **Administrator dashboard:** A dedicated view of users, login activity, document sharing, and security events.
-2. **Complete audit trail:** Comprehensive tracking of document views, downloads, permission changes, deletions, and denied access attempts.
-3. **Tamper resistance:** Stronger protection and verification for audit records.
-4. **Automated security tests:** A complete test suite for cross-user access, unauthorized downloads, modifications, deletions, and permission revocation.
-5. **Threat coverage:** Expand threat scenarios and link them to corresponding tests.
-6. **API documentation:** Document every endpoint and its authorization requirements.
-7. **Backup and recovery:** Implement and test recovery for document files, not just database records.
-8. **Clean-clone setup:** Verify the complete installation instructions and required configuration on a fresh machine.
-9. **Evaluation accounts and seed data:** Provide working test accounts and representative documents for each supported role.
-
-These limitations are documented honestly rather than presented as completed features.
+See [PROMPTS.md](PROMPTS.md) for the AI development record, including prompts, observed issues, corrections, and relevant commit links.
 
 ---
 
-## 🚀 Future Improvements
+## ⚠️ Current Limitations
 
-- Build an administrator dashboard for monitoring document activity.
-- Add comprehensive authorization tests and integration tests.
-- Expand audit coverage and implement stronger tamper-evidence controls.
-- Implement secure document-file backups and tested recovery procedures.
-- Publish a complete API reference.
-- Add reproducible seed data and documented evaluation accounts.
-- Improve upload validation, document lifecycle management, and operational monitoring.
+The core document workflows include uploading, downloading, and user-specific view-only sharing. The following areas still require implementation or further verification:
+
+- Comprehensive audit tracking for every required document event.
+- Automated security tests covering unauthorized cross-user access and document operations.
+- Stronger verification of immediate access revocation across protected endpoints.
+- Tamper-resistant audit records.
+- Complete endpoint-by-endpoint API authorization documentation.
+- A tested backup and recovery process for uploaded document files.
+
+The project does not currently include a dedicated administrator dashboard.
+
+---
+
+## 🚀 Future Work
+
+Planned improvements include:
+
+1. **Administrator dashboard** — Provide a dedicated view of user activity, document sharing, permission changes, and security events.
+2. **Advanced document search** — Add or expand search and filtering by document name, owner, category, and date.
+3. **Complete audit trail** — Track uploads, views, downloads, changes, deletions, permission changes, and denied access attempts.
+4. **Automated security testing** — Add integration tests for unauthorized reads, downloads, modifications, deletions, and access revocation.
+5. **Audit-log integrity** — Strengthen protection against unauthorized alteration of audit records.
+6. **API documentation** — Document every endpoint, authentication requirement, permission rule, and error response.
+7. **File backup and recovery** — Implement and test recovery of document files independently of database backups.
+8. **Threat coverage** — Map documented threats to automated tests and record accepted risks.
+9. **Evaluation setup** — Improve reproducible setup instructions and provide dedicated test accounts and sample documents.
+
+These improvements will help bring TrustVault closer to the full security and auditability requirements of a production-oriented document management platform.
 
 ---
 
@@ -468,10 +472,10 @@ These limitations are documented honestly rather than presented as completed fea
 
 **Challagundla Jeevan Sankar**
 
-Project: **TrustVault — Secure Document Management System**
+**Project:** TrustVault — Secure Document Management System
 
-GitHub: https://github.com/jeevansankar/TrustVault
+**GitHub:** https://github.com/jeevansankar/TrustVault
 
 ---
 
-*TrustVault is a security-focused project developed for the Snovasys Fresher Hiring Challenge 2026. The documented limitations distinguish implemented functionality from work that still needs completion or verification.*
+*TrustVault was developed for the Snovasys Fresher Hiring Challenge 2026. This README distinguishes implemented functionality from areas planned for future development.*
